@@ -9,23 +9,25 @@
  * @author David J. Barnes and Michael Kolling
  * @version 2008.03.30
  */
-public class TicketMachine
+ class TicketMachine
 {
     // The price of a ticket from this machine.
-    private int price;
+       private int price;
     // The amount of money entered by a customer so far.
     private int balance;
     // The total amount of money collected by this machine.
     private int total;
+    private int score;
 
     /**
      * Create a machine that issues tickets of the given price.
      * Note that the price must be greater than zero, and there
      * are no checks to ensure this.
      */
-    public TicketMachine(int ticketCost)
+    public TicketMachine(int ticketprice)
     {
-        price = ticketCost;
+        //price = 1000;
+        price=ticketprice;
         balance = 0;
         total = 0;
     }
@@ -33,11 +35,23 @@ public class TicketMachine
     /**
      * Return the price of a ticket.
      */
+    public void prompt()
+    {
+        System.out.println("Please insert the correct amount of money");
+    }
     public int getPrice()
     {
-        return price;
+         return price;
     }
-
+    public void empty()
+    {
+        total=0;
+    }
+  
+    public void showPrice()
+    {
+    System.out.println("The price of a ticket is " + price +" cents ");
+    }
     /**
      * Return the amount of money already inserted for the
      * next ticket.
@@ -46,7 +60,10 @@ public class TicketMachine
     {
         return balance;
     }
-
+public int getTotal()
+{
+    return total;
+}
     /**
      * Receive an amount of money in cents from a customer.
      */
@@ -54,6 +71,18 @@ public class TicketMachine
     {
         balance = balance + amount;
     }
+public void setPrice(int ticketCost)
+{
+price=ticketCost;
+}
+public void increase(int points)
+{
+     score= score + points;
+}
+public void discount(int amount)
+{
+    amount=amount-price;
+}
 
     /**
      * Print a ticket.
@@ -66,7 +95,8 @@ public class TicketMachine
         System.out.println("##################");
         System.out.println("# The BlueJ Line");
         System.out.println("# Ticket");
-        System.out.println("# " + price + " cents.");
+        System.out.println("# price " + price + " cents.");
+        System.out.println("# price cents.");
         System.out.println("##################");
         System.out.println();
 
